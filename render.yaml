@@ -1,0 +1,16 @@
+services:
+  - name: todo-backend
+    type: web
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false  # Prevents storing the database URI in version control
+databases:
+  - name: todo-db
+    plan: free
+    region: oregon
